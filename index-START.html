@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+  
+  const passpharse = 'abcdef';
+  const currentSequence = [];
+  function checkMatch(e) {
+    currentSequence.push(e.key);
+    currentSequence.splice(-passpharse.length-1, currentSequence.length - passpharse.length);
+    if(currentSequence.join('') === passpharse) {
+      cornify_add();
+    }
+  }
+  window.addEventListener('keydown', checkMatch);
+</script>
+</body>
+</html>
